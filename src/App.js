@@ -1,16 +1,14 @@
 
 import React from 'react';
 import './App.css';
-// import Login from './views/Login';
-import SignUp from './views/SignUp';
-
+import { BrowserRouter } from "react-router-dom";
+import Navigation from './navigation/Navigation';
 
 function App() {
   return (
-
-    // <Login />
-    <SignUp/>
-
+    <BrowserRouter>
+      <Navigation />
+    </BrowserRouter>
   );
 }
 
