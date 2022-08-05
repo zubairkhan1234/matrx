@@ -1,7 +1,41 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 export default function Login() {
+
+    let navigate = useNavigate()
+    function logsubmit(event) {
+        event.preventDefault()
+
+        var loginEmail = document.getElementById('loginEmail').value
+        var loginPassword = document.getElementById('loginPassword').value
+
+        axios({
+            url: 'http://localhost:5000/login',
+            method: 'post',
+            data: {
+                userEmail: loginEmail,
+                userPassword: loginPassword
+            },
+            withCredentials: true
+        })
+            .then(function (response) {
+                if (response.status === 200) {
+                    navigate('/home')
+                    alert(response.data.message)
+                } else {
+                    alert(response.data.message)
+                }
+            })
+            .catch(function (error) {
+                alert(error.message)
+                console.log("ldafjldja ", error.response.data.message)
+
+            });
+
+        return false;
+
+    }
     return (
         <section className="vh-100" style={{ backgroundColor: '#eee' }}>
             <div className="container h-100">
@@ -12,19 +46,19 @@ export default function Login() {
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
-                                        <form className="mx-1 mx-md-4">
+                                        <form className="mx-1 mx-md-4" onSubmit={logsubmit}>
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+                                                <i className="fas fa-envelope fa-lg me-3 fa-fw pt-4" />
                                                 <div className="text-start form-outline flex-fill mb-0">
-                                                    <label className="form-label" htmlFor="form3Example3c">Your Email</label>
-                                                    <input type="email" id="form3Example3c" className="form-control" />
+                                                    <label className="form-label" htmlFor="loginEmail">Your Email</label>
+                                                    <input type="email" id="loginEmail" className="form-control" />
                                                 </div>
                                             </div>
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                                                <i className="fas fa-lock fa-lg me-3 fa-fw pt-4" />
                                                 <div className="text-start form-outline flex-fill mb-0">
-                                                    <label className="form-label" htmlFor="form3Example4c">Password</label>
-                                                    <input type="password" id="form3Example4c" className="form-control" />
+                                                    <label className="form-label" htmlFor="loginPassword">Password</label>
+                                                    <input type="password" id="loginPassword" className="form-control" />
                                                 </div>
                                             </div>
                                             <div className="form-check d-flex justify-content-between mb-5">
@@ -44,12 +78,12 @@ export default function Login() {
                                                 </div>
                                             </div>
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="button" className="btn btn-primary btn-lg">Login</button>
+                                                <button type="submit" className="btn btn-primary btn-lg">Login</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample" />
                                     </div>
                                 </div>
                             </div>
