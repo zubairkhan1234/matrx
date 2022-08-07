@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Header'
+import Logo from './Wappenblanko.png'
 export default function Home() {
     const [changeTabClass, setChangeClassTab] = useState('vFF/Hiorg')
 
@@ -10,16 +11,19 @@ export default function Home() {
                 <div className='d-flex justify-content-between'>
                     {/* This is left side  */}
                     <div className='col-10 d-flex justify-content-between p-0 m-0 container'>
-                        <div className='col-6 justify-content-between'>
+                        <div className='col-6' style={{ height: '550px' }}>
                             <button className='home-item-box'>Mein Profile</button>
                             <button className='home-item-box'>Shop</button>
                         </div>
 
-                        <div className='col-6 justify-content-between'>
+                        <div className='col-6 ' style={{ height: '550px' }}>
                             <button className='home-item-box'>Tool</button>
                             {/* <button className='home-item-box'>welcome to  Home Page</button> */}
-                            <button className='home-item-box-control'>{'Control View Center (only From Hight Rank)'}</button>
+                            <button className='home-item-box-control'>{'Control View Center  overview (only From Hight Rank)'}</button>
                         </div>
+
+
+
                     </div>
 
                     {/* This is Right side  */}
@@ -33,15 +37,32 @@ export default function Home() {
                             </li>
                         </ul>
                         <div className='tabContait'>
-                            <h5>Mein Fahrzeug</h5>
-                            <div>
-                                <img src="./Wappenblanko.png" className="img-fluid" alt="Sample" />
-                                {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample" /> */}
+                            <h4>Mein Fahrzeug</h4>
+                            <div style={{ margin: '5px', padding: '20px', backgroundColor: 'white' }}>
+                                <img src={Logo} className="img-fluid" alt="Sample" />
+                            </div>
+                            <div className='tabContait'>
+                                <h5>Mein Fahrzeug besetzt</h5>
+                                <p>Fahrzeug</p>
+                                <p>Sepura</p>
+                                <p>Fahrzeug verlassen  </p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
+
+            <div className=''>
+                <div className=' col-10 d-flex justify-content-between'>
+                    <div>
+                        <i className="fas fa-pager fa-lg me-3 fa-fw pt-4" />
+                    </div>
+                    {/* <div>
+                        <i className="fas fa-pager fa-lg me-3 fa-fw pt-4" />
+                    </div> */}
+                </div>
+            </div>
         </>
     )
 }
