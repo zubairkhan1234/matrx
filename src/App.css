@@ -6,7 +6,7 @@ input {
 
 .tabContait {
   background-color: #778899;
-  margin: 3px;
+  /* margin: 3px; */
   padding: 3px;
   margin-top: 10px;
 }
@@ -23,16 +23,26 @@ input {
   padding: 5px;
 }
 
-.tabContait h5 {
-  margin-bottom: 100px;
+.img-fluid {
+  width: 230px;
+  height: 270px
+}
+
+.tabContait p,
+.tabContait h4 {
+  margin-bottom: 5px;
+}
+
+.tabContait .Sepura {
+  margin-bottom: 50px;
 }
 
 .home-item-box {
   background-color: #778899;
-  width: 500px;
+  width: 400px;
   padding: 15px;
   border: 3px solid #dcdcdc;
-  height: 100px;
+  height: 80px;
   font-size: 15px;
   font-weight: bold;
   color: white;
@@ -44,16 +54,65 @@ input {
 .home-item-box-control {
 
   background-color: white;
-  width: 500px;
+  width: 400px;
   padding: 15px 80px;
   border: 8px solid #dcdcdc;
-  font-size: 25px;
+  font-size: 20px;
   color: red;
   text-align: left;
   margin-top: 100px;
 
 }
 
-.fa-lg {
-  font-size: 15em !important;
+.home-page-pager div .fa-lg {
+  font-size: 11em !important;
+  margin-top: 50px;
+}
+
+
+/* Tool page css */
+
+.tool-container {
+  background-image: url(./assets/tool.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.tool-item-box,
+.tool-item-box3 {
+  /* background-color: #778899; */
+  background-color: rgba(225, 225, 225, 0.5);
+  width: 400px;
+  padding: 15px;
+  border: 6px solid #dcdcdc;
+  height: 80px;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 100px;
+
+}
+
+@media screen and (max-width: 720px) {
+
+  .tool-item-box,
+  .tool-item-box3 {
+    margin-top: 50px;
+
+  }
+
+  /* 
+  .tool-item-box3 {
+    margin-top: 0px;
+  } */
+}
+
+@media screen and (max-width: 540px) {
+  .h-auto-tool-box {
+    height: 89px !important;
+  }
 }
