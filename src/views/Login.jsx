@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { UseGlobalStateUpdate } from '../context/context'
 export default function Login() {
 
-    let navigate = useNavigate()
+    const GlobalStateUpdate = UseGlobalStateUpdate()
+    const navigate = useNavigate()
     function logsubmit(event) {
         event.preventDefault()
 
@@ -20,9 +22,15 @@ export default function Login() {
             withCredentials: true
         })
             .then(function (response) {
-                if (response.status === 200) {
-                    navigate('/home')
+                if (response.data.status === 200) {
                     alert(response.data.message)
+                    GlobalStateUpdate(prev => ({
+                        ...prev,
+                        loginStatus: true,
+                        user: response.data.loginRequestUser,
+                        role: response.data.loginRequestUser.role
+                    }))
+                    navigate('/home')
                 } else {
                     alert(response.data.message)
                 }
