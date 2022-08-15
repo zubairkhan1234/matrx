@@ -152,3 +152,46 @@ input {
     font-size: 12px;
   }
 }
+
+.legentStyle {
+  position: relative;
+  top: 22px;
+  left: 20px;
+  z-index: 10;
+  background-color: #99b4d1;
+  font-size: 15px;
+  width: auto;
+  padding: 5px;
+}
+
+.costumInput {
+  height: 25px;
+  border: 1.5px solid #7a7a7a;
+  width: 100%;
+  font-size: 13px;
+}
+
+.costumInput:focus {
+  height: 25px !important;
+  border: 1.5px solid #7a7a7a !important;
+  width: 100% !important;
+  font-size: 13px !important;
+}
+
+.CostumButton {
+  border: 1px solid black;
+  background-color: transparent;
+  width: 100%;
+}
+.CostumButton2 {
+  border: 1px solid #dee2e6;
+  background-color: transparent;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.custom-buttom-container {
+  margin-top: 5px;
+  padding: 5px;
+  border: 3px solid #dee2e6;
+}

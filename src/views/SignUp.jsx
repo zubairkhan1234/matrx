@@ -65,7 +65,7 @@ export default function SignUp() {
                         <div className="card text-black" style={{ borderRadius: '25px' }}>
                             <div className="card-body">
                                 <div className="row justify-content-center">
-                                    <div className="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
+                                    <div className="col-md-6 col-lg-6 col-xl-6 order-2 order-lg-1">
                                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                                         <form className="mx-1 mx-md-4" onSubmit={signUpNow}>
                                             <div className="d-flex flex-row align-items-center mb-2">
@@ -108,8 +108,8 @@ export default function SignUp() {
                                             </div>
                                         </form>
                                     </div>
-                                    <div className="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample" />
+                                    <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
+                                        <img style={{ height: '300px ' }} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample" />
                                     </div>
                                 </div>
                             </div>

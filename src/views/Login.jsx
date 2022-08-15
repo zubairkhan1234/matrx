@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { UseGlobalStateUpdate } from '../context/context'
 export default function Login() {
@@ -28,7 +28,8 @@ export default function Login() {
                         ...prev,
                         loginStatus: true,
                         user: response.data.loginRequestUser,
-                        role: response.data.loginRequestUser.role
+                        role: response.data.loginRequestUser.role,
+                        userProfile: response.data.userProfile
                     }))
                     navigate('/home')
                 } else {

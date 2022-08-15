@@ -12,7 +12,8 @@ function GlobalStateProvider({ children }) {
         role: null,
         user: null,
         loginStatus: false,
-        orderUser: null
+        orderUser: null,
+        userProfile: null
     })
 
 

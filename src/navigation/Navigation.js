@@ -7,25 +7,35 @@ import Home from "../views/Home";
 import Tool from "../views/Tool";
 import Profile from "../views/Profile";
 import Shop from "../views/Shop";
+import { UseGlobalState } from '../context/context'
 export default function Navigation() {
+    const GlobalState = UseGlobalState()
     return (
         <div className="App">
             <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<SignUp />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/forgot-Password" element={<ForgotPassword />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/home-tool" element={<Tool />} />
-                    <Route path="/home-profile" element={<Profile />} />
-                    <Route path="/home-Shop" element={<Shop />} />
-                    <Route
-                        path="*"
-                        element={<Navigate to="/" replace />}
-                    />
+                {GlobalState.user ?
+                    <Routes>
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/home-tool" element={<Tool />} />
+                        <Route path="/home-profile" element={<Profile />} />
+                        <Route path="/home-Shop" element={<Shop />} />
+                        <Route
+                            path="*"
+                            element={<Navigate to="/login" replace />}
+                        />
+                    </Routes>
+                    :
+                    <Routes>
+                        <Route path="/" element={<SignUp />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/forgot-Password" element={<ForgotPassword />} />
+                        <Route
+                            path="*"
+                            element={<Navigate to="/login" replace />}
+                        />
+                    </Routes>
 
-
-                </Routes>
+                }
             </BrowserRouter>
         </div>
     );
