@@ -156,7 +156,7 @@ export default function Profile() {
                     </div>
 
                     <div style={{ backgroundColor: '#99b4d1' }} className={` col-12 my-3  ${toggle === "profile" ? "d-block" : "d-none"}`}>
-                        <button className='CostumButton2'>Passwort speichem</button>
+                        <button className='CostumButton2'>Datenschutzerklärung und Nutzungsbedingungen einsehen</button>
                     </div>
                 </div>
             </div>
