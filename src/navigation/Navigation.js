@@ -5,7 +5,9 @@ import SignUp from "../views/SignUp";
 import ForgotPassword from "../views/ForgotPassword";
 import Home from "../views/Home";
 import Tool from "../views/Tool";
+import Quiz from "../views/Quiz";
 import Profile from "../views/Profile";
+
 import Shop from "../views/Shop";
 import { UseGlobalState } from '../context/context'
 export default function Navigation() {
@@ -19,6 +21,7 @@ export default function Navigation() {
                         <Route path="/home-tool" element={<Tool />} />
                         <Route path="/home-profile" element={<Profile />} />
                         <Route path="/home-Shop" element={<Shop />} />
+                        <Route path="/home-quize" element={<Quiz />} />
                         <Route
                             path="*"
                             element={<Navigate to="/login" replace />}

@@ -5,6 +5,7 @@ import profilePic from '../assets/profile.png'
 import RangePic from '../assets/range.png'
 import ProfileLogo from '../assets/profileform.png'
 import { UseGlobalState } from '../context/context'
+import axios from 'axios'
 
 export default function Profile() {
 
@@ -12,25 +13,39 @@ export default function Profile() {
     const [toggle, setToggelCondition] = useState('range')
     const GlobalState = UseGlobalState()
 
-    console.log(GlobalState.userProfile)
-
     function changePassword(e) {
         e.preventDefault()
 
 
         let userId = GlobalState.userProfile.UserId
-        let userName = document.getElementById('userNameProfile').value
         let oldUserName = document.getElementById('oldPassword').value
         let newUserName = document.getElementById('newPassword').value
         let reEnterPassword = document.getElementById('reEnterPassword').value
 
         if (newUserName === reEnterPassword) {
+            axios({
+                url: 'http://localhost:5000/updatePassword',
+                method: 'put',
+                data: {
+                    userId: userId,
+                    oldPass: oldUserName,
+                    newPass: newUserName
+                },
+                withCredentials: true
+            })
+                .then(function (response) {
+                    if (response.data.status === 200) {
+                        alert(response.data.message)
+                    } else {
+                        alert(response.data.message)
+                    }
+                })
+                .catch(function (error) {
+                    alert(error.message)
+                    console.log("ldafjldja ", error.response.data.message)
+                });
 
-            console.log('userId', userId)
-            console.log('userName', userName)
-            console.log('oldUserName', oldUserName)
-            console.log('newUserName', newUserName)
-            console.log('reEnterPassword', reEnterPassword)
+            return false;
         } else {
             alert('Password is not matched')
         }
@@ -44,6 +59,29 @@ export default function Profile() {
 
         console.log('userId', userId)
         console.log('userEmail', userEmail)
+
+        axios({
+            url: 'http://localhost:5000/updateEmail',
+            method: 'put',
+            data: {
+                userId: userId,
+                newEmail: userEmail
+            },
+            withCredentials: true
+        })
+            .then(function (response) {
+                if (response.data.status === 200) {
+                    alert(response.data.message)
+                } else {
+                    alert(response.data.message)
+                }
+            })
+            .catch(function (error) {
+                alert(error.message)
+                console.log("ldafjldja ", error.response.data.message)
+            });
+
+        return false;
     }
 
 
