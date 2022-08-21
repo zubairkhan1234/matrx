@@ -4,20 +4,21 @@ import rdRange from '../assets/rdRange.png'
 import profilePic from '../assets/profile.png'
 import RangePic from '../assets/range.png'
 import ProfileLogo from '../assets/profileform.png'
-import { UseGlobalState } from '../context/context'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 export default function Profile() {
 
 
     const [toggle, setToggelCondition] = useState('range')
-    const GlobalState = UseGlobalState()
+    const { user, profileData } = useSelector(state => state.authState)
+
 
     function changePassword(e) {
         e.preventDefault()
 
 
-        let userId = GlobalState.userProfile.UserId
+        let userId = profileData.UserId
         let oldUserName = document.getElementById('oldPassword').value
         let newUserName = document.getElementById('newPassword').value
         let reEnterPassword = document.getElementById('reEnterPassword').value
@@ -54,7 +55,7 @@ export default function Profile() {
         e.preventDefault()
 
 
-        let userId = GlobalState.userProfile.UserId
+        let userId = profileData.UserId
         let userEmail = document.getElementById('userEmailProfile').value
 
         console.log('userId', userId)
@@ -126,7 +127,7 @@ export default function Profile() {
                                     <div className="form-group row">
                                         <div className="col-md-10">
                                             <label htmlFor="userNameProfile" className="col-form-label label-form">Benutzername:</label>
-                                            <input type="text" defaultValue={GlobalState.user.name} className="costumInput form-control" id="userNameProfile" placeholder='Benutzername' />
+                                            <input type="text" defaultValue={user.name} className="costumInput form-control" id="userNameProfile" placeholder='Benutzername' />
                                         </div>
                                     </div>
                                     <div className="form-check mt-3">
@@ -179,7 +180,7 @@ export default function Profile() {
                                     <div className="form-group row">
                                         <div className="col-md-10">
                                             <label htmlFor="userEmailProfile" className="col-form-label label-form ">aktulle E-Mail address:</label>
-                                            <input type="text" className="costumInput form-control" id="userEmailProfile" defaultValue={GlobalState.user.email} placeholder='aktulle E-Mail address' />
+                                            <input type="text" className="costumInput form-control" id="userEmailProfile" defaultValue={user.email} placeholder='aktulle E-Mail address' />
                                         </div>
                                     </div>
                                 </fieldset>
@@ -207,30 +208,30 @@ export default function Profile() {
                             <img src={fwRange} alt="fw-Range" />
                         </div>
                         <div style={{ width: '90%' }}>
-                            <p className='profile-range-content' style={{ color: '#9e3131', }}> <span>{GlobalState.userProfile.BereichFeuerwehr.title}</span></p>
-                            <p className='profile-range-content' style={{ color: 'red', marginLeft: '20%' }}><span>Fire</span></p>
-                            <p className='profile-range-content'><span>Range:</span> {GlobalState.userProfile.BereichFeuerwehr.rang}</p>
-                            <p className='profile-range-content'><span>Nächster Range:</span> {GlobalState.userProfile.BereichFeuerwehr.NächsterRange} </p>
-                            <p className='profile-range-content'><span>benötigte Lehrgänge:</span>{GlobalState.userProfile.BereichFeuerwehr.benötigteLehrgänge}</p>
+                            <p className='profile-range-content' style={{ color: '#9e3131', }}> <span>{profileData.BereichFeuerwehr.title}</span></p>
+                            {/* <p className='profile-range-content' style={{ color: 'red', marginLeft: '20%' }}><span>Fire</span></p> */}
+                            <p className='profile-range-content'><span>Range:</span> {profileData.BereichFeuerwehr.rang}</p>
+                            <p className='profile-range-content'><span>Nächster Range:</span> {profileData.BereichFeuerwehr.NächsterRange} </p>
+                            <p className='profile-range-content'><span>benötigte Lehrgänge:</span>{profileData.BereichFeuerwehr.benötigteLehrgänge}</p>
                         </div>
                     </div>
 
                 </div>
                 <div className="row col-12 ">
-                    <div >
+                    {/* <div >
                         <p className='profile-range-content' style={{ color: 'red', textAlign: 'center' }}> <span>Rank OverView Fire and Rescue </span></p>
-                    </div>
+                    </div> */}
                     <div className='row'>
 
                         <div style={{ width: '10%' }}>
                             <img src={rdRange} alt="rd-Range" />
                         </div>
                         <div style={{ width: '90%' }}>
-                            <p className='profile-range-content' style={{ color: '#2c89fd', }}> <span>{GlobalState.userProfile.BereichRettungsdienst.title}</span></p>
-                            <p className='profile-range-content' style={{ color: 'red', marginLeft: '20%' }}><span>Rescue</span></p>
-                            <p className='profile-range-content'><span>Range:</span> {GlobalState.userProfile.BereichRettungsdienst.rang}</p>
-                            <p className='profile-range-content'><span>Nächster Range:</span> {GlobalState.userProfile.BereichRettungsdienst.NächsterRange} </p>
-                            <p className='profile-range-content'><span>benötigte Lehrgänge:</span> {GlobalState.userProfile.BereichRettungsdienst.benötigteLehrgänge}</p>
+                            <p className='profile-range-content' style={{ color: '#2c89fd', }}> <span>{profileData.BereichRettungsdienst.title}</span></p>
+                            {/* <p className='profile-range-content' style={{ color: 'red', marginLeft: '20%' }}><span>Rescue</span></p> */}
+                            <p className='profile-range-content'><span>Range:</span> {profileData.BereichRettungsdienst.rang}</p>
+                            <p className='profile-range-content'><span>Nächster Range:</span> {profileData.BereichRettungsdienst.NächsterRange} </p>
+                            <p className='profile-range-content'><span>benötigte Lehrgänge:</span> {profileData.BereichRettungsdienst.benötigteLehrgänge}</p>
                         </div>
                     </div>
                 </div>

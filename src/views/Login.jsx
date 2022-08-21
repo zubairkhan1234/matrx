@@ -1,48 +1,23 @@
 import React from 'react'
-import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
-import { UseGlobalStateUpdate } from '../context/context'
+import { Link} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { loginAuth } from '../store/actions/auth'
 export default function Login() {
+    const dispatch = useDispatch()
 
-    const GlobalStateUpdate = UseGlobalStateUpdate()
-    const navigate = useNavigate()
-    function logsubmit(event) {
+    async function logsubmit(event) {
         event.preventDefault()
 
         var loginEmail = document.getElementById('loginEmail').value
         var loginPassword = document.getElementById('loginPassword').value
 
-        axios({
-            url: 'http://localhost:5000/login',
-            method: 'post',
-            data: {
-                userEmail: loginEmail,
-                userPassword: loginPassword
-            },
-            withCredentials: true
-        })
-            .then(function (response) {
-                if (response.data.status === 200) {
-                    alert(response.data.message)
-                    GlobalStateUpdate(prev => ({
-                        ...prev,
-                        loginStatus: true,
-                        user: response.data.loginRequestUser,
-                        role: response.data.loginRequestUser.role,
-                        userProfile: response.data.userProfile
-                    }))
-                    navigate('/home')
-                } else {
-                    alert(response.data.message)
-                }
-            })
-            .catch(function (error) {
-                alert(error.message)
-                console.log("ldafjldja ", error.response.data.message)
+        let data = {
+            userEmail: loginEmail,
+            userPassword: loginPassword
+        }
+        dispatch(loginAuth(data))
 
-            });
-
-        return false;
+        return false
 
     }
     return (

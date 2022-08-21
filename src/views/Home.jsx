@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Header from './Header'
 import Logo from '../assets/Wappenblanko.png'
-
 import { Link } from 'react-router-dom'
 export default function Home() {
-    const [changeTabClass, setChangeClassTab] = useState('vFF/Hiorg')
+    const [changeTabClass, setChangeClassTab] = React.useState('vFF/Hiorg')
+
+
 
     return (
         <>

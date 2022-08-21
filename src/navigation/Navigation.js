@@ -1,45 +1,24 @@
-import * as React from "react";
-import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
-import Login from '../views/Login'
-import SignUp from "../views/SignUp";
-import ForgotPassword from "../views/ForgotPassword";
-import Home from "../views/Home";
-import Tool from "../views/Tool";
-import Quiz from "../views/Quiz";
-import Profile from "../views/Profile";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import Shop from "../views/Shop";
-import { UseGlobalState } from '../context/context'
+
+// Navigation router
+
+import AuthNavigation from "./authNavigation/authNavigation";
+import HomeNavigation from "./homeNavigation/homeNavigation";
+
 export default function Navigation() {
-    const GlobalState = UseGlobalState()
+    const { user } = useSelector(state => state.authState)
+
+
+
     return (
         <div className="App">
-            <BrowserRouter>
-                {GlobalState.user ?
-                    <Routes>
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/home-tool" element={<Tool />} />
-                        <Route path="/home-profile" element={<Profile />} />
-                        <Route path="/home-Shop" element={<Shop />} />
-                        <Route path="/home-quize" element={<Quiz />} />
-                        <Route
-                            path="*"
-                            element={<Navigate to="/login" replace />}
-                        />
-                    </Routes>
-                    :
-                    <Routes>
-                        <Route path="/" element={<SignUp />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/forgot-Password" element={<ForgotPassword />} />
-                        <Route
-                            path="*"
-                            element={<Navigate to="/login" replace />}
-                        />
-                    </Routes>
-
-                }
-            </BrowserRouter>
-        </div>
+            {user !== null ?
+                <HomeNavigation />
+                :
+                <AuthNavigation />
+            }
+        </div >
     );
 }

@@ -2,14 +2,14 @@
 import React from 'react';
 import './App.css';
 import Navigation from './navigation/Navigation';
-import { GlobalStateProvider } from './context/context';
-
+import { Provider } from 'react-redux'
+import { store } from './store/store';
 function App() {
   return (
 
-    <GlobalStateProvider>
+    <Provider store={store}>
       <Navigation />
-    </GlobalStateProvider>
+    </Provider>
 
   );
 }
