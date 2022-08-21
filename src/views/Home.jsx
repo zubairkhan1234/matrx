@@ -40,7 +40,9 @@ export default function Home() {
                             </div>
                             <div>
 
-                                <button onClick={() => alert('Sie können dies nicht sehen, da Sie kein Administrator sind')} className='home-item-box-control'>{'Control View Center  overview (only From Hight Rank)'}</button>
+                                <Link to={'/home-allusers'}>
+                                    <button className='home-item-box-control'>{'Control View Center  overview (only From Hight Rank)'}</button>
+                                </Link>
 
                             </div>
 

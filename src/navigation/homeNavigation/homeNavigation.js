@@ -5,6 +5,7 @@ import Tool from "../../views/Tool";
 import Quiz from "../../views/Quiz";
 import Profile from "../../views/Profile";
 import Shop from "../../views/Shop";
+import AllUsers from "../../views/AllUsers";
 
 export default function HomeNavigation() {
 
@@ -17,6 +18,7 @@ export default function HomeNavigation() {
                     <Route path="/home-profile" element={<Profile />} />
                     <Route path="/home-Shop" element={<Shop />} />
                     <Route path="/home-quize" element={<Quiz />} />
+                    <Route path="/home-allusers" element={<AllUsers />} />
                     <Route
                         path="*"
                         element={<Navigate to="/" replace />}
