@@ -13,7 +13,7 @@ export default function Header() {
                     <img src={Logo} alt="web-logo" style={{ width: '35px', height: '40px' }} />
                 </div>
                 <div style={{ margin: '0px 10px' }}>
-                    <button onClick={() => navigate('/') } style={{ backgroundColor: 'transparent', border: 'none' }}>
+                    <button onClick={() => navigate('/')} style={{ backgroundColor: 'transparent', border: 'none' }}>
                         {user.name}
                     </button>
                 </div>
@@ -30,13 +30,21 @@ export default function Header() {
                         </li>
                     </ul>
                 </div>
-                <button style={{ border: 'none', textDecoration: 'none' }}>
-                    <Link to={'/home-quize'} style={{ border: 'none', textDecoration: 'none', color: 'black' }}>
+                <div className='d-flex'>
+                    <div className='mr-3'>
+                        <Link to={'/home-quize'} style={{ border: 'none', textDecoration: 'none', color: 'black' }}>
+                            Create Shop
+                        </Link>
+                    </div>
+                    <div>
+                        <button style={{ border: 'none', textDecoration: 'none' }}>
+                            <Link to={'/home-quize'} style={{ border: 'none', textDecoration: 'none', color: 'black' }}>
 
-                        Start Quiz
-                    </Link>
-                </button>
-
+                                Start Quiz
+                            </Link>
+                        </button>
+                    </div>
+                </div>
             </div>
         </nav >
     )

@@ -40,7 +40,7 @@ export default function Home() {
                             </div>
                             <div>
 
-                                <Link to={'/home-allusers'}>
+                                <Link to={'/home-create-shop'}>
                                     <button className='home-item-box-control'>{'Control View Center  overview (only From Hight Rank)'}</button>
                                 </Link>
 

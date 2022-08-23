@@ -9,6 +9,7 @@ input {
   grid-template-columns: 1fr min(99ch, 100%) 1fr;
   min-block-size: 100vh;
   overflow-x: hidden;
+  background-color: #dcdcdc;
 }
 
 .app>* {
